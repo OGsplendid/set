@@ -14,16 +14,16 @@ test('should return size === 2', () => {
   const hero = { name: 'Jhon', health: 10 };
   const hero2 = { name: 'Pete', health: 15 };
   const team = new Team();
-  team.addAll([hero, hero2, hero]);
+  team.addAll(hero, hero2, hero);
   expect(team.members.size).toBe(2);
 });
 
 test('turning members from Set into array', () => {
   const hero = { name: 'Jhon', health: 10 };
-  const characters = [hero, { name: 'Pete', health: 15 }, hero];
+  const hero2 = { name: 'Pete', health: 15 };
   const team = new Team();
-  team.addAll(characters);
+  team.addAll(hero, hero2, hero);
   const result = [hero, { name: 'Pete', health: 15 }];
-  team.toArray(characters);
+  team.toArray();
   expect(team.toArray()).toEqual(result);
 });
